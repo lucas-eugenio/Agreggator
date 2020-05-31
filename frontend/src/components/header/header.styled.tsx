@@ -7,9 +7,8 @@ export const HeaderContainer = styled.div`
   padding: 20px;
 `;
 
-export const HeaderText = styled.text`
+export const HeaderText = styled.b`
   color: #E7F4F8;
   font-size: 18px;
-  font-weight: bold;
   margin-left: 20px;
 `; 

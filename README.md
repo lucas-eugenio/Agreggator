@@ -7,13 +7,14 @@ ___
 
 ## Running Project:
 
-### React App:
+### React App (FrontEnd):
 
 To run the React App, run the following commands:
-- ***cd /frontend***
-- ***yarn start***
+- **$ cd /frontend**
+- **$ yarn install**
+- **$ yarn start**
 
-Doing this you shoud see a new tab of your default browser opened on the pataform.
+Doing this you shoud see a new tab of your default browser opened on the pataform, running on **localhost:3000**.
 
 ___
 
@@ -27,4 +28,5 @@ ___
 - **/lib** contains other usefull stuff like JUnit.
 
 ### Version 0.1.0:
-- Add frontend implementation.
+- Add frontend implementation for FormCard and SiteCard.
+- Add a placeholder for NewsFeed.
