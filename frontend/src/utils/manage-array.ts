@@ -4,6 +4,7 @@ export const addToUniqueArray = (value: string, array: string[]): string[] => {
   return array;
 }
 
-// export const removeFromArray = (value: string, array: string[]): string[] => {
-
-// }
+export const removeFromArray = (value: string, array: string[]): string[] => {
+  const newArray = array.filter(item => item !== value);
+  return newArray;
+}

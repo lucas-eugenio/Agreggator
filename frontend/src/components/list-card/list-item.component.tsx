@@ -2,26 +2,21 @@ import React from 'react';
 import { SiteContainer, DeleteButton } from './list-item.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import useList from '../../services/use-list';
 
 interface IListItem {
   site: string;
-  onListChange: (list: string[]) => void;
+  removeSiteFromList: (site: string) => void;
 }
 
-const ListItem: React.FC<IListItem> = ({ site, onListChange }) => {
-  const { getList, setList } = useList();
-
-  const handleClick = () => {
-    const newList = getList().filter(item => item !== site);
-    setList(newList);
-    onListChange(newList);
+const ListItem: React.FC<IListItem> = ({ site, removeSiteFromList }) => {
+  const handleRemoveClick = (): void => {
+    removeSiteFromList(site);
   }
 
   return (
     <SiteContainer>
       {site}
-      <DeleteButton onClick={handleClick}>
+      <DeleteButton onClick={handleRemoveClick}>
         <FontAwesomeIcon
           icon={faTrash}
           color="#FF4D4D"
@@ -29,6 +24,5 @@ const ListItem: React.FC<IListItem> = ({ site, onListChange }) => {
       </DeleteButton>
     </SiteContainer>
   );
-};
-
+}
 export default ListItem;
