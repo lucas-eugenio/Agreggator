@@ -22,4 +22,7 @@ export const SubmitButton = styled.button`
   border-radius: 4px;
   border-width: 1px;
   padding: 8px;
+  :hover {
+    background-color: #BEC1C4;
+  }
 `; 

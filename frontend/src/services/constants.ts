@@ -1,1 +1,0 @@
-export const URL_LIST_KEY = 'LIST';
