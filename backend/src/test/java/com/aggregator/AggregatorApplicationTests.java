@@ -1,10 +1,10 @@
-package com.aggregator.backend;
+package com.aggregator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class AggregatorApplicationTests {
 
 	@Test
 	void contextLoads() {

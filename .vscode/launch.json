@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - FeedReaderTest",
+      "request": "launch",
+      "mainClass": "com.aggregator.utils.FeedReaderTest",
+      "projectName": "backend"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-DemoApplication<backend>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.aggregator.backend.DemoApplication",
+      "projectName": "backend",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-DemoApplication<backend>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.aggregator.DemoApplication",
+      "projectName": "backend",
+      "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-AggregatorApplication<backend>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.aggregator.AggregatorApplication",
+      "projectName": "backend",
+      "args": ""
+    }
+  ]
+}
