@@ -7,6 +7,16 @@ ___
 
 ## Running Project:
 
+### Prerequisites:
+- Maven package (**$ sudo apt-get install maven** on Linux or Mac).
+- Yarn package (**$ sudo sudo apt install yarn** on Linux or Mac).
+
+### Spring App (BackEnd):
+
+Too run the Spring App, run the following commands on **/Aggreggator** folder:
+- **$ cd /backend**
+- **$ mvn spring-boot:run**
+
 ### React App (FrontEnd):
 
 To run the React App, run the following commands:
@@ -30,3 +40,12 @@ ___
 ### Version 0.1.0:
 - Add frontend implementation for FormCard and SiteCard.
 - Add a placeholder for NewsFeed.
+
+### Version 0.2.0:
+- Add backend inplementatio for FeedController, FeedService and some Models.
+- Create **/feed** that receive a list of RSS feed URLs and consolidate them.
+
+### Version 0.3.0:
+- Add frontend implementation for NewsCard and NewsFetcher.
+- Populate NewsCard with the results from **/feed** API.
+- Major refactoring to create some abstractions and other components.
