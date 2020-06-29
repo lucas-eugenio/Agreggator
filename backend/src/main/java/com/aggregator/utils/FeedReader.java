@@ -19,6 +19,7 @@ public class FeedReader {
   static final String LINK = "link";
   static final String ITEM = "item";
   static final String DATE = "pubDate";
+  static final String DESCRIPTION = "description";
 
   final URL url;
 
@@ -37,6 +38,7 @@ public class FeedReader {
       String title = "";
       String link = "";
       String date = "";
+      String description = "";
 
       XMLInputFactory inputFactory = XMLInputFactory.newInstance();
       InputStream in = read();
@@ -63,18 +65,21 @@ public class FeedReader {
           case DATE:
             date = getCharacterData(event, eventReader);
             break;
+          case DESCRIPTION:
+            description = getCharacterData(event, eventReader);
+            break;
           }
         } else if (event.isEndElement()) {
           if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
-              News item = new News(title, link, date);
-              feed.addItem(item);
-              event = eventReader.nextEvent();
-              continue;
+            News item = new News(title, link, date, description);
+            feed.addItem(item);
+            event = eventReader.nextEvent();
+            continue;
           }
         }
       }
     } catch (XMLStreamException e) {
-        throw new RuntimeException(e);
+      throw new RuntimeException(e);
     }
     return feed;
   }
@@ -83,16 +88,16 @@ public class FeedReader {
     String result = "";
     event = eventReader.nextEvent();
     if (event instanceof Characters) {
-        result = event.asCharacters().getData();
+      result = event.asCharacters().getData();
     }
     return result;
   }
 
   private InputStream read() {
     try {
-        return url.openStream();
+      return url.openStream();
     } catch (IOException e) {
-        throw new RuntimeException(e);
+      throw new RuntimeException(e);
     }
   }
 }
