@@ -21,7 +21,27 @@ public class FeedController {
   private FeedsService FeedsService;
 
   @RequestMapping("/feed")
-  public List<Feed> getFeedsFromList(@Validated @RequestBody Input feedList) {
-    return FeedsService.findAll(feedList.getUrls());
+  public List<Feed> getFeedsFromList(@Validated @RequestBody Input input) {
+    List<Feed> feeds = FeedsService.findAll(input.getUrls());
+
+    if(input.getKeyWords().size() > 0) {
+      for(Feed feed : feeds) {
+        feed.filterWithKeywords(input.getKeyWords());
+      }
+    }
+
+    if(input.getStartAt() != null) {
+      for(Feed feed : feeds) {
+        feed.filterByStartAt(input.getStartAt());
+      }
+    }
+
+    if(input.getEndAt() != null) {
+      for(Feed feed : feeds) {
+        feed.filterByEndAt(input.getEndAt());
+      }
+    }
+
+    return feeds;
   }
 }
