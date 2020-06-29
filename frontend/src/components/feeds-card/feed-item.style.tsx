@@ -18,7 +18,7 @@ export const FeedTitle = styled.b`
 
 export const ItemsContainer = styled.div`
   display: flex;
-  margin-top: 8px;
+  margin-top: 16px;
   justify-content: center;
 `;
 
@@ -34,12 +34,15 @@ export const NewsContainer = styled.a`
   :hover {
     background-color: #BEC1C4;
   }
-  :not(:last-child) {
-    margin-right: 20px
-  }
+  margin: 0px 8px;
 `;
 
 export const NewsTitle = styled.b`
   color: #286E84;
   font-size: 14px;
+`;
+
+export const NavigationButton = styled.button`
+  margin: 0px 8px;
+  font-size: 20px;
 `;

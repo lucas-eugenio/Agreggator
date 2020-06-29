@@ -19,7 +19,6 @@ const useSiteList = () => {
     saveOnLocalStorage(newSiteList);
   }
 
-  console.log('OSAULOQUERVER:' , siteList);
   return { siteList, addSiteOnList, removeSiteFromList }
 }
 
