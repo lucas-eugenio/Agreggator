@@ -49,3 +49,18 @@ ___
 - Add frontend implementation for NewsCard and NewsFetcher.
 - Populate NewsCard with the results from **/feed** API.
 - Major refactoring to create some abstractions and other components.
+
+### Version 0.3.1:
+- Add chech for error while parsing News.
+- Add **hasError** on **Feed** Class.
+
+### Version 0.4.0:
+- Small refactors.
+- Add some attributes and functions on **Feed** and **News** class.
+- Add Filters on **/feed** endpoint for accept **keyWords**, **startAt** and **endAt**.
+
+### Version 0.5.0:
+- Add filters Forms and List on FE.
+
+### Version: 1.0.0:
+- First Official Release.
