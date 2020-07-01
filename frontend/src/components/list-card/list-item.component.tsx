@@ -4,18 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 interface IListItem {
-  site: string;
-  removeSiteFromList: (site: string) => void;
+  item: string;
+  removeItemFromList: (item: string) => void;
 }
 
-const ListItem: React.FC<IListItem> = ({ site, removeSiteFromList }) => {
+const ListItem: React.FC<IListItem> = ({ item, removeItemFromList }) => {
   const handleRemoveClick = (): void => {
-    removeSiteFromList(site);
+    removeItemFromList(item);
   }
 
   return (
     <SiteContainer>
-      {site}
+      {item}
       <DeleteButton onClick={handleRemoveClick}>
         <FontAwesomeIcon
           icon={faTrash}
