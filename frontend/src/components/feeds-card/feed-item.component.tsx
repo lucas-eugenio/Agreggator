@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import News from '../../models/news';
 import {
   FeedContainer,
@@ -8,15 +8,17 @@ import {
   NewsTitle,
   NavigationButton,
 } from './feed-item.style';
+import ErrorBox from '../core/error-box/error-box.component';
 
 const PER_PAGE = 5;
 
 interface IFeedItem {
   title: string;
   items: News[];
+  hasError: boolean;
 }
 
-const FeedItem: React.FC<IFeedItem> = ({title, items}) => {
+const FeedItem: React.FC<IFeedItem> = ({title, items, hasError}) => {
   const [displayItems, setDisplayItems] = useState<News[]>(items?.slice(0, PER_PAGE));
   const [page, setPage] = useState<number>(1);
 
@@ -34,36 +36,46 @@ const FeedItem: React.FC<IFeedItem> = ({title, items}) => {
   }
 
   return (
-    <FeedContainer>
-      <FeedTitle>
-        {title}
-      </FeedTitle>
-      <ItemsContainer>
-        <NavigationButton
-          onClick={handlePreviousClick}
-          disabled={!hasPrevious}
-        >
-          {"⬅"}
-        </NavigationButton>
-        {displayItems.map(news => (
-          <NewsContainer
-            href={news.link}
-            key={news.title}
-            target="_blank"
-          >
-            <NewsTitle>
-              {news.title}
-            </NewsTitle>
-          </NewsContainer>
-        ))}
-        <NavigationButton
-          onClick={handleNextClick}
-          disabled={!hasNext}
-        >
-          {"➡"}
-        </NavigationButton>
-      </ItemsContainer>
-    </FeedContainer>
+    <Fragment>
+      {!hasError && (
+        <FeedContainer>
+          <FeedTitle>
+            {title}
+          </FeedTitle>
+          {items.length > 0 ? (
+            <ItemsContainer>
+              <NavigationButton
+                onClick={handlePreviousClick}
+                disabled={!hasPrevious}
+              >
+                {"⬅"}
+              </NavigationButton>
+              {displayItems.map(news => (
+                <NewsContainer
+                  href={news.link}
+                  key={news.title}
+                  target="_blank"
+                >
+                  <NewsTitle>
+                    {news.title}
+                  </NewsTitle>
+                </NewsContainer>
+              ))}
+              <NavigationButton
+                onClick={handleNextClick}
+                disabled={!hasNext}
+              >
+                {"➡"}
+              </NavigationButton>
+            </ItemsContainer>
+          ) : (
+            <ErrorBox>
+              Esse site não possui resultados para os filtros aplicados.
+            </ErrorBox>
+          )}
+        </FeedContainer>
+      )}
+    </Fragment>
   );
 }
 
